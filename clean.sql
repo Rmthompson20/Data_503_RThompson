@@ -1,6 +1,5 @@
 
-INSERT INTO clean_weather VALUES 
-  (
+INSERT INTO clean_weather 
   SELECT 
     raw_json ->> 'dt' AS dt,
     raw_json ->> 'id' AS id,
@@ -30,7 +29,6 @@ INSERT INTO clean_weather VALUES
     raw_json ->> 'timezone' AS timezone,
     raw_json ->> 'visibility' AS visibility 
   FROM sa_weatheroutput 
-)
 ; 
 
 DELETE FROM sa_weatheroutput ; 

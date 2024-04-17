@@ -1,4 +1,4 @@
-COPY INTO clean_weather VALUES
+INSERT INTO clean_weather VALUES
 SELECT 
   raw_json ->> 'dt' AS dt,
   raw_json ->> 'id' AS id,

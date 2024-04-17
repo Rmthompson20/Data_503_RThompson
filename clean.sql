@@ -1,6 +1,7 @@
 
 INSERT INTO clean_weather 
   SELECT 
+    id, 
     raw_json ->> 'dt' AS dt,
     raw_json ->> 'id' AS id,
     raw_json ->> 'cod' AS cod,
@@ -27,7 +28,8 @@ INSERT INTO clean_weather
     raw_json -> 'weather' -> 0 ->> 'main' AS weather_main,
     raw_json -> 'weather' -> 0 ->> 'description' AS weather_description,
     raw_json ->> 'timezone' AS timezone,
-    raw_json ->> 'visibility' AS visibility 
+    raw_json ->> 'visibility' AS visibility ,
+    added_at
   FROM sa_weatheroutput 
 ; 
 
